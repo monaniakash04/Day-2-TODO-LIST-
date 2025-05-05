@@ -10,6 +10,7 @@ const Task = memo((props) => {
   const {
     id,
     time,
+    idx,
     task,
     isCompleted,
     setTasks,
@@ -25,31 +26,33 @@ const Task = memo((props) => {
     <div className="max-w-xl min-h-[70px] border-yellow-50 items-center justify-center flex flex-wrap gap-3">
       <ToastContainer />
       {isCompleted ? (
-         <button
-         type="button"
-         onClick={()=>{
-          setTasks(tasks.map((item)=>{
-            return item.id==id?{...item,isCompleted:false}:item
-          }))
-         }}
-         className="px-4   py-[5px] rounded-md border-2 text-white hover:shadow-2xl duration-700 cursor-pointer bg-red-500  "
-       >
-         <IoCloseSharp />
-       </button>
-        
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            let newArrayy=tasks;
+            newArrayy[idx].isCompleted=false;
+            console.log(newArrayy)
+            setTasks(newArrayy);
+          }}
+          className="px-4   py-[5px] rounded-md border-2 text-white hover:shadow-2xl duration-700 cursor-pointer bg-red-500  "
+        >
+          <IoCloseSharp />
+        </button>
       ) : (
         <button
-        type="button"
-        onClick={()=>{
-          setTasks(tasks.map((item)=>{
-            return item.id==id?{...item,isCompleted:true}:item
-          }))
-         }}
-        className="px-4 py-[5px] rounded-md border-2 text-white hover:shadow-2xl duration-700 cursor-pointer bg-green-500   "
-      >
-        
-        <IoCheckmarkDoneSharp />
-      </button>
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            let newArrayy=tasks;
+            newArrayy[idx].isCompleted=true;
+            console.log(newArrayy)
+            setTasks(newArrayy);
+          }}
+          className="px-4 py-[5px] rounded-md border-2 text-white hover:shadow-2xl duration-700 cursor-pointer bg-green-500   "
+        >
+          <IoCheckmarkDoneSharp />
+        </button>
       )}
 
       <div

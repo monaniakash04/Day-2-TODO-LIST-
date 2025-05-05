@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "e240",
+      "name": "Monani Akash",
+      "email": "akashmonai@gmail.com",
+      "password": "akash123",
+      "cnfPassword": "akash123"
+    },
+    {
+      "id": "55b7df3a-e77e-4e65-96a3-c1f5d7231721",
+      "name": "Monani Akash",
+      "email": "admin@admin.com",
+      "password": "akash123",
+      "cnfPassword": "akash123"
+    }
+  ]
+}
